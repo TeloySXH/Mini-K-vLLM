@@ -1,0 +1,356 @@
+【Mini-K vLLM】 2026.4.17
+
+(T2) sxh@16pro:~/Project/Mini-K$ python 1.py
+2026-04-17 23:01:35,473 - __main__ - INFO - ======================================================================
+2026-04-17 23:01:35,473 - __main__ - INFO - 🚀 MINI-vLLM COMPREHENSIVE TEST SUITE
+2026-04-17 23:01:35,473 - __main__ - INFO - ======================================================================
+2026-04-17 23:01:35,473 - __main__ - INFO - Model Path: /home/sxh/huggingface/Qwen3-4B
+2026-04-17 23:01:35,473 - __main__ - INFO - Device: cuda
+2026-04-17 23:01:35,473 - __main__ - INFO - KV Compress: Disabled
+2026-04-17 23:01:35,473 - KvChat.config - INFO - Model path validated: /home/sxh/huggingface/Qwen3-4B
+2026-04-17 23:01:35,473 - KvChat.config - INFO - Tensor parallelism: 1
+2026-04-17 23:01:35,474 - KvChat.config - INFO - Loaded HuggingFace config from /home/sxh/huggingface/Qwen3-4B
+2026-04-17 23:01:35,474 - KvChat.config - INFO - Adjusted max_model_len from 50000 to 40960 (model max: 40960)
+2026-04-17 23:01:35,474 - KvChat.config - INFO - Compression thresholds: S=511, R=257
+2026-04-17 23:01:35,953 - KvChat.utils.loader - INFO - Found 3 safetensors files in /home/sxh/huggingface/Qwen3-4B
+2026-04-17 23:01:38,471 - KvChat.utils.loader - INFO - Weight loading complete: 398 loaded, 0 failed, 0 skipped
+2026-04-17 23:01:38,476 - KvChat.engine.model_runner - INFO - [Triton Warmup] Pre-compiling store_kvcache kernel...
+2026-04-17 23:01:38,667 - KvChat.engine.model_runner - INFO - [Triton Warmup] store_kvcache kernel pre-compiled successfully
+2026-04-17 23:01:38,667 - KvChat.engine.model_runner - INFO - [Triton Warmup] Flash attention kernels will be compiled during model warmup
+2026-04-17 23:01:38,667 - KvChat.engine.model_runner - INFO - [Triton Warmup] Complete - Triton kernels pre-compiled and cached
+[INFO] CUDA Graph support confirmed (CUDA 12.8)
+[INFO] CUDA Graph supported, capturing graphs for decode...
+2026-04-17 23:02:10,263 - __main__ - INFO - ✅ LLM initialized successfully
+2026-04-17 23:02:10,279 - __main__ - INFO - Model vocab size: 151669
+2026-04-17 23:02:10,279 - __main__ - INFO - 
+2026-04-17 23:02:10,279 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:10,279 - __main__ - INFO - 📋 PREFILL PHASE TEST
+2026-04-17 23:02:10,279 - __main__ - INFO - Prefill tokens: 512
+2026-04-17 23:02:10,279 - __main__ - INFO - Number of sequences: 1
+2026-04-17 23:02:10,279 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:10,283 - __main__ - INFO - Prompt token count: 501
+2026-04-17 23:02:10,283 - __main__ - INFO - Warmup runs: 1
+2026-04-17 23:02:11,765 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=2, reason=max_tokens, generated=1, total_len=502
+2026-04-17 23:02:11,766 - __main__ - INFO - Test runs: 3
+2026-04-17 23:02:11,845 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=3, reason=max_tokens, generated=1, total_len=502
+2026-04-17 23:02:11,845 - __main__ - INFO -   Run 1: 79.32ms | Throughput: 6316.3 tokens/sec
+2026-04-17 23:02:11,921 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=4, reason=max_tokens, generated=1, total_len=502
+2026-04-17 23:02:11,921 - __main__ - INFO -   Run 2: 75.79ms | Throughput: 6610.0 tokens/sec
+2026-04-17 23:02:11,995 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=5, reason=max_tokens, generated=1, total_len=502
+2026-04-17 23:02:11,995 - __main__ - INFO -   Run 3: 73.89ms | Throughput: 6780.0 tokens/sec
+2026-04-17 23:02:11,995 - __main__ - INFO - 
+2026-04-17 23:02:11,995 - __main__ - INFO - Average prefill time: 76.34ms
+2026-04-17 23:02:11,995 - __main__ - INFO - Average throughput: 6563.1 tokens/sec
+2026-04-17 23:02:11,995 - __main__ - INFO - Peak throughput: 6780.0 tokens/sec
+2026-04-17 23:02:11,995 - __main__ - INFO - 
+2026-04-17 23:02:11,995 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:11,995 - __main__ - INFO - 🎯 DECODE PHASE TEST
+2026-04-17 23:02:11,995 - __main__ - INFO - Decode tokens: 256
+2026-04-17 23:02:11,995 - __main__ - INFO - Number of sequences: 1
+2026-04-17 23:02:11,995 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:11,996 - __main__ - INFO - Context length: 256 tokens
+2026-04-17 23:02:11,997 - __main__ - INFO - Warmup runs: 1
+2026-04-17 23:02:16,360 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=6, reason=max_tokens, generated=256, total_len=512
+2026-04-17 23:02:16,361 - __main__ - INFO - Test runs: 3
+2026-04-17 23:02:20,322 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=7, reason=max_tokens, generated=256, total_len=512
+2026-04-17 23:02:20,323 - __main__ - INFO -   Run 1: 3961.28ms (256 steps) | Throughput: 64.6 tokens/sec
+2026-04-17 23:02:24,438 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=8, reason=max_tokens, generated=256, total_len=512
+2026-04-17 23:02:24,438 - __main__ - INFO -   Run 2: 4115.13ms (256 steps) | Throughput: 62.2 tokens/sec
+2026-04-17 23:02:28,525 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=9, reason=max_tokens, generated=256, total_len=512
+2026-04-17 23:02:28,525 - __main__ - INFO -   Run 3: 4087.58ms (256 steps) | Throughput: 62.6 tokens/sec
+2026-04-17 23:02:28,526 - __main__ - INFO - 
+2026-04-17 23:02:28,526 - __main__ - INFO - Average decode time: 4054.67ms
+2026-04-17 23:02:28,526 - __main__ - INFO - Average throughput: 63.1 tokens/sec
+2026-04-17 23:02:28,526 - __main__ - INFO - Peak throughput: 64.6 tokens/sec
+2026-04-17 23:02:28,526 - __main__ - INFO - 
+2026-04-17 23:02:28,526 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:28,526 - __main__ - INFO - 🔄 END-TO-END GENERATION TEST
+2026-04-17 23:02:28,526 - __main__ - INFO - Prefill: 512 tokens
+2026-04-17 23:02:28,526 - __main__ - INFO - Generate: 256 tokens
+2026-04-17 23:02:28,526 - __main__ - INFO - Batch size: 1
+2026-04-17 23:02:28,526 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:28,527 - __main__ - INFO - Warmup runs: 1
+2026-04-17 23:02:32,736 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=10, reason=max_tokens, generated=256, total_len=757
+2026-04-17 23:02:32,737 - __main__ - INFO - Test runs: 3
+2026-04-17 23:02:37,569 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=11, reason=max_tokens, generated=256, total_len=757
+2026-04-17 23:02:37,569 - __main__ - INFO -   Run 1: 4140.58ms | Total tokens: 256 | Throughput: 61.8 tokens/sec
+2026-04-17 23:02:41,734 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=12, reason=max_tokens, generated=256, total_len=757
+2026-04-17 23:02:41,734 - __main__ - INFO -   Run 2: 4163.90ms | Total tokens: 256 | Throughput: 61.5 tokens/sec
+2026-04-17 23:02:45,726 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=13, reason=max_tokens, generated=256, total_len=757
+2026-04-17 23:02:45,727 - __main__ - INFO -   Run 3: 3992.27ms | Total tokens: 256 | Throughput: 64.1 tokens/sec
+2026-04-17 23:02:45,727 - __main__ - INFO - 
+2026-04-17 23:02:45,727 - __main__ - INFO - Average E2E latency: 4098.92ms
+2026-04-17 23:02:45,727 - __main__ - INFO - Average throughput: 62.5 tokens/sec
+2026-04-17 23:02:45,728 - __main__ - INFO - Peak throughput: 64.1 tokens/sec
+2026-04-17 23:02:45,728 - __main__ - INFO - 
+2026-04-17 23:02:45,728 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:45,728 - __main__ - INFO - ⚡ TOKEN GENERATION SPEED TEST
+2026-04-17 23:02:45,728 - __main__ - INFO - Batch size: 1
+2026-04-17 23:02:45,728 - __main__ - INFO - ----------------------------------------------------------------------
+2026-04-17 23:02:45,729 - __main__ - INFO - Warmup runs: 1
+2026-04-17 23:02:47,410 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=14, reason=max_tokens, generated=100, total_len=601
+2026-04-17 23:02:47,411 - __main__ - INFO - Test runs: 3
+2026-04-17 23:02:48,276 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=15, reason=max_tokens, generated=50, total_len=551
+2026-04-17 23:02:48,276 - __main__ - INFO -   Run 1: Avg token time: 16.09ms | Min: 15.09ms | Max: 17.07ms
+2026-04-17 23:02:49,138 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=16, reason=max_tokens, generated=50, total_len=551
+2026-04-17 23:02:49,138 - __main__ - INFO -   Run 2: Avg token time: 16.04ms | Min: 15.04ms | Max: 16.45ms
+2026-04-17 23:02:49,941 - KvChat.engine.scheduler - INFO - [SEQUENCE_COMPLETE] seq_id=17, reason=max_tokens, generated=50, total_len=551
+2026-04-17 23:02:49,941 - __main__ - INFO -   Run 3: Avg token time: 14.81ms | Min: 14.31ms | Max: 15.49ms
+2026-04-17 23:02:49,941 - __main__ - INFO - 
+2026-04-17 23:02:49,942 - __main__ - INFO - Average time per token: 15.64ms
+2026-04-17 23:02:49,942 - __main__ - INFO - Tokens per second: 63.9 tokens/sec
+2026-04-17 23:02:49,942 - __main__ - INFO - Min token time: 14.31ms
+2026-04-17 23:02:49,942 - __main__ - INFO - Max token time: 17.07ms
+2026-04-17 23:02:49,942 - __main__ - INFO - 
+2026-04-17 23:02:49,942 - __main__ - INFO - ======================================================================
+2026-04-17 23:02:49,942 - __main__ - INFO - 📊 TEST SUMMARY
+2026-04-17 23:02:49,942 - __main__ - INFO - ======================================================================
+2026-04-17 23:02:49,942 - __main__ - INFO - 
+✅ PREFILL PHASE:
+2026-04-17 23:02:49,942 - __main__ - INFO -   - 501 tokens in 76.34ms
+2026-04-17 23:02:49,942 - __main__ - INFO -     Throughput: 6563.1 tokens/sec
+2026-04-17 23:02:49,942 - __main__ - INFO - 
+✅ DECODE PHASE:
+2026-04-17 23:02:49,942 - __main__ - INFO -   - 256 tokens in 4054.67ms
+2026-04-17 23:02:49,942 - __main__ - INFO -     Throughput: 63.1 tokens/sec
+2026-04-17 23:02:49,942 - __main__ - INFO - 
+======================================================================
+2026-04-17 23:02:49,942 - __main__ - INFO - 🎉 ALL TESTS COMPLETED SUCCESSFULLY!
+2026-04-17 23:02:49,942 - __main__ - INFO - ======================================================================
+
+2026-04-17 23:02:49,942 - __main__ - INFO - 📈 FINAL RESULTS:
+2026-04-17 23:02:49,942 - __main__ - INFO -   Prefill throughput: 6563.1 tokens/sec
+2026-04-17 23:02:49,942 - __main__ - INFO -   Decode throughput: 63.1 tokens/sec
+2026-04-17 23:02:49,942 - __main__ - INFO -   E2E latency: 4098.92ms
+2026-04-17 23:02:49,942 - __main__ - INFO -   E2E throughput: 62.5 tokens/sec
+2026-04-17 23:02:49,942 - __main__ - INFO -   Token generation speed: 63.9 tokens/sec
+2026-04-17 23:02:49,943 - __main__ - INFO -   Avg time per token: 15.64ms
+2026-04-17 23:02:49,943 - __main__ - INFO -   KV Compress: ❌ Disabled
+
+
+
+
+
+
+
+
+
+【Prefill测试】
+
+
+
+================================================================================
+PREFILL ATTENTION BENCHMARK WITH KVLLM INTEGRATION
+Comparing: PyTorch (O(N²)) | Naive Triton (O(N²)) | Flash (O(N))
+================================================================================
+
+================================================================================
+Benchmark: 2 seqs × 60 tokens (total: 120 tokens)
+Heads: 32/8, Dim: 128
+================================================================================
+
+[1/3] PyTorch Standard (O(N²) memory)...
+      0.569 ms
+
+[2/3] Naive Triton (O(N²), materializes full attention)...
+      0.027 ms
+
+[3/3] Flash Attention (O(N), online softmax)...
+      0.129 ms
+
+================================================================================
+Benchmark: 4 seqs × 64 tokens (total: 256 tokens)
+Heads: 32/8, Dim: 128
+================================================================================
+
+[1/3] PyTorch Standard (O(N²) memory)...
+      1.111 ms
+
+[2/3] Naive Triton (O(N²), materializes full attention)...
+      0.027 ms
+
+[3/3] Flash Attention (O(N), online softmax)...
+      0.122 ms
+
+================================================================================
+Benchmark: 2 seqs × 1024 tokens (total: 2048 tokens)
+Heads: 32/8, Dim: 128
+================================================================================
+
+[1/3] PyTorch Standard (O(N²) memory)...
+      2.676 ms
+
+[2/3] Naive Triton: SKIPPED (seq_len=1024 > 64, would exceed shared memory)
+
+[3/3] Flash Attention (O(N), online softmax)...
+      0.967 ms
+
+================================================================================
+Benchmark: 1 seqs × 4096 tokens (total: 4096 tokens)
+Heads: 32/8, Dim: 128
+================================================================================
+
+[1/3] PyTorch Standard (O(N²) memory)...
+      23.586 ms
+
+[2/3] Naive Triton: SKIPPED (seq_len=4096 > 64, would exceed shared memory)
+
+[3/3] Flash Attention (O(N), online softmax)...
+      6.527 ms
+
+================================================================================
+ANALYSIS
+================================================================================
+
+================================================================================
+FINDING CROSSOVER POINT: When does Flash beat Naive?
+================================================================================
+
+Testing seq_len = 16...
+  Naive: 0.041ms | Flash: 0.152ms | Winner: Naive (0.27x)
+
+Testing seq_len = 32...
+  Naive: 0.058ms | Flash: 0.145ms | Winner: Naive (0.40x)
+
+Testing seq_len = 48...
+  Naive: 0.037ms | Flash: 0.166ms | Winner: Naive (0.22x)
+
+Testing seq_len = 64...
+  Naive: 0.040ms | Flash: 0.132ms | Winner: Naive (0.30x)
+
+Testing seq_len = 80...
+  Naive: SKIPPED | Flash: 0.132ms | Winner: Flash (by default)
+
+Testing seq_len = 96...
+  Naive: SKIPPED | Flash: 0.157ms | Winner: Flash (by default)
+
+Testing seq_len = 112...
+  Naive: SKIPPED | Flash: 0.137ms | Winner: Flash (by default)
+
+Testing seq_len = 128...
+  Naive: SKIPPED | Flash: 0.142ms | Winner: Flash (by default)
+
+Testing seq_len = 192...
+  Naive: SKIPPED | Flash: 0.177ms | Winner: Flash (by default)
+
+Testing seq_len = 256...
+  Naive: SKIPPED | Flash: 0.214ms | Winner: Flash (by default)
+
+Testing seq_len = 512...
+  Naive: SKIPPED | Flash: 0.348ms | Winner: Flash (by default)
+
+Testing seq_len = 1024...
+  Naive: SKIPPED | Flash: 0.861ms | Winner: Flash (by default)
+
+================================================================================
+CROSSOVER ANALYSIS
+================================================================================
+   Seq Len |   Naive (ms) |   Flash (ms) |     Winner |    Speedup
+--------------------------------------------------------------------------------
+        16 |        0.041 |        0.152 |      Naive |      3.73x
+        32 |        0.058 |        0.145 |      Naive |      2.48x
+        48 |        0.037 |        0.166 |      Naive |      4.54x
+        64 |        0.040 |        0.132 |      Naive |      3.32x
+        80 |          OOM |        0.132 |      Flash |        N/A
+        96 |          OOM |        0.157 |      Flash |        N/A
+       112 |          OOM |        0.137 |      Flash |        N/A
+       128 |          OOM |        0.142 |      Flash |        N/A
+       192 |          OOM |        0.177 |      Flash |        N/A
+       256 |          OOM |        0.214 |      Flash |        N/A
+       512 |          OOM |        0.348 |      Flash |        N/A
+      1024 |          OOM |        0.861 |      Flash |        N/A
+
+================================================================================
+KERNEL LAUNCH ANALYSIS
+================================================================================
+
+For 2 sequences × 60 tokens:
+  Naive Triton grid:    (2, 32)
+  Naive total kernels:  64
+
+  Flash Attention grid: (2, 32, 2)
+  Flash total kernels:  128
+
+  Ratio: Flash launches 2.0x more kernels
+
+  Each kernel launch has ~5-20μs overhead
+  Extra overhead: ~640μs = 0.64ms
+
+
+
+
+
+
+
+
+
+  【Decode测试】
+
+
+  
+(T2) sxh@16pro:~/Project/Mini-K$ python td.py
+
+======================================================================
+PAGED ATTENTION DECODE BENCHMARK WITH KVLLM INTEGRATION
+Comparing: Naive PyTorch | Optimized PyTorch | Triton
+======================================================================
+
+======================================================================
+batch_size=2, seq_len=60, num_heads=32
+num_kv_heads=8, head_dim=128, block_size=16
+======================================================================
+
+1. Testing Naive PyTorch implementation...
+   Time: 1.037ms
+
+2. Testing Optimized PyTorch implementation...
+   Time: 1.133ms
+
+3. Testing Triton implementation...
+   Time: 0.037ms
+
+======================================================================
+batch_size=1, seq_len=512, num_heads=32
+num_kv_heads=8, head_dim=128, block_size=16
+======================================================================
+
+1. Testing Naive PyTorch implementation...
+   Time: 1.782ms
+
+2. Testing Optimized PyTorch implementation...
+   Time: 0.740ms
+
+3. Testing Triton implementation...
+   Time: 0.295ms
+
+======================================================================
+batch_size=16, seq_len=256, num_heads=32
+num_kv_heads=8, head_dim=128, block_size=16
+======================================================================
+
+1. Testing Naive PyTorch implementation...
+   Time: 13.667ms
+
+2. Testing Optimized PyTorch implementation...
+   Time: 6.584ms
+
+3. Testing Triton implementation...
+   Time: 0.220ms
+
+======================================================================
+batch_size=4, seq_len=2048, num_heads=32
+num_kv_heads=8, head_dim=128, block_size=16
+======================================================================
+
+1. Testing Naive PyTorch implementation...
+   Time: 27.676ms
+
+2. Testing Optimized PyTorch implementation...
+   Time: 2.996ms
+
+3. Testing Triton implementation...
+   Time: 1.198ms
+
+
+
+

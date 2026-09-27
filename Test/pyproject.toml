@@ -1,0 +1,31 @@
+
+
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nano-kvllm"
+version = "0.1.5"
+authors = [{ name = "Crane" }]
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+description = "nano-vllm with KV cache compression for long-context decoding"
+requires-python = ">=3.10,<3.13"
+
+dependencies = [
+  "torch>=2.4.0",
+  "triton>=3.4.0",
+  "transformers>=4.51.0",
+  "flash-attn",
+  "xxhash",
+]
+
+[project.urls]
+Homepage = "https://github.com/TheToughCrane/nano-kvllm"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nanokvllm*", "KvChat*"]
